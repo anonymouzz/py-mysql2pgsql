@@ -172,12 +172,11 @@ want to drop before importing set `force_truncate` to
 Note that when migrating, it's sometimes possible to knock your 
 sequences out of whack. When this happens, you may get IntegrityErrors 
 about your primary keys saying things like, "duplicate key value violates 
-unique constraint." See `this page <https://wiki.postgresql.org/wiki/Fixing_Sequences>`_ for a fix
+unique constraint." See `this page <https://wiki.postgresql.org/wiki/Fixing_Sequences>`_ for a fix.
 
-In some cases, you may get:
-  IngegrityError: insert or update on table 'refs_table' 
-    violates freign key constraint 'id_refs_main_table_id'. 
-  DETAIL: Key (id)=123 is not present in table 'main_table'.
+In some cases, you may get:   IngegrityError: insert or update on table 
+'refs_table' violates freign key constraint 'id_refs_main_table_id'. 
+DETAIL: Key (id)=123 is not present in table 'main_table'.
 In this case, `--single-transaction` key may help.
 
 Due to different naming conventions in mysql an postgrsql, there is a chance
